@@ -69,7 +69,7 @@ export default {
             }
         },
         getThumbnailUrl(path) {
-        return path.startsWith('http') ? path : `${import.meta.env.VITE_API_URL}/api/storage/${path}`;
+        return path.startsWith('https') ? path : `${import.meta.env.VITE_API_URL}/api/storage/${path}`;
       },
     },
     
