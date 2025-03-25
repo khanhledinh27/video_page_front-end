@@ -69,8 +69,14 @@ export default {
             }
         },
         getThumbnailUrl(path) {
-        return path.startsWith('https') ? path : `${import.meta.env.VITE_API_URL}/api/storage/${path}`;
+          if (!path) return null;
+          if (path.startsWith('http')) {
+              // Add timestamp to force cache refresh
+              return `${path}?v=${new Date().getTime()}`;
+          }
+          return `${import.meta.env.VITE_API_URL}/storage/${path}?v=${new Date().getTime()}`;
       },
+
     },
     
         mounted() {
