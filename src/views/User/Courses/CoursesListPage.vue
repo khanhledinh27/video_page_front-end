@@ -103,6 +103,7 @@ export default {
           return `${import.meta.env.VITE_API_URL}/storage/${path}?v=${new Date().getTime()}`;
       },
 
+
     },
     
         mounted() {
