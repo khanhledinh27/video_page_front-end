@@ -509,4 +509,23 @@
 footer{
   background-color:#3a3f5f;
 }
+
+/* Add padding to the bottom of the main content */
+.homepage {
+  padding-bottom: 100px; /* Adjust this value to match the height of the footer */
+}
+
+@media (max-width: 768px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .homepage {
+    padding-bottom: 150px; /* Ensure enough space for the fixed footer */
+  }
+}
 </style>
