@@ -2,30 +2,36 @@
 
   <div>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
       <div class="container">
-        <router-link to="/" class="navbar-brand">
-          <img src="/src/assets/logo_plt.png" class="navbar-logo">
+        <router-link to="/" @click="reloadPage" class="navbar-brand">
+          <img src="/src/assets/logo_plt.png" class="navbar-logo" alt="PLT Solutions Logo">
         </router-link>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <router-link to="/" class="nav-link active" aria-current="page">Trang chủ</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/course" class="nav-link">Bài giảng</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/courselist" class="nav-link">Khóa học</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/contact" class="nav-link">Liên hệ</router-link>
-            </li>
-
+                <router-link to="/" class="nav-link " aria-current="page">Trang chủ</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/course" class="nav-link active">Bài giảng</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/courselist" class="nav-link">Khóa học</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/contact" class="nav-link">Liên hệ</router-link>
+              </li>
           </ul>
         </div>
       </div>
@@ -83,6 +89,24 @@
         </div>
       </div>
     </div>
+    <!-- Footer Section -->
+    <footer class="text-center text-white">
+        <div class="container p-4 pb-0">
+          <section class="">
+            <p class="d-flex justify-content-center align-items-center">
+              <span class="me-3">Tạo tài khoản miễn phí:</span>
+              <router-link to="/login" type="button" class="btn btn-outline-light btn-rounded">
+                Đăng ký ngay!
+              </router-link>
+            </p>
+          </section>
+        </div>
+        <div class="text-center p-3">
+          © 2025 Copyright:
+          <router-link class="text-white" to="/">PLT Solutions</router-link>
+        </div>
+
+      </footer>
   </div>
 </template>
 
@@ -158,49 +182,69 @@ export default {
 </script>
 
 <style scoped>
-/* NAVBAR */
-.navbar {
+/* Navbar Styles */
+.custom-navbar {
+  background-color: #ffffff;
+  border-bottom: 2px solid #324ee9;
+  padding: 10px 0;
+}
+
+.navbar-logo {
+  height: 60px;
+  width: auto;
+  margin-right: 20px;
+}
+
+.navbar-nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  padding: 10px 20px;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  display: inline;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
+.navbar-nav .nav-item {
+  margin-right: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 
-.nav-links a:hover {
-  color: #ffcc00;
+.navbar-nav .nav-link {
+  color: #000000;
+  text-transform: capitalize;
+  transition: color 0.3s ease;
 }
 
-.logo-container {
+.navbar-nav .nav-link:hover {
+  color: #324ee9;
+}
+
+.navbar-nav .nav-link.active {
+  color: #324ee9;
+}
+.search-form {
   display: flex;
   align-items: center;
 }
 
-.logo-link {
-  display: inline-block;
+.search-input {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 15px;
+  width: 250px;
+  transition: border-color 0.3s ease;
 }
 
-.logo-img {
-  width: 35px;
-  height: auto;
+.search-input:focus {
+  border-color: #324ee9;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav .nav-item {
+    margin-right: 10px;
+  }
+
+  .search-input {
+    width: 150px;
+  }
 }
 
 /* COURSES PAGE */
@@ -299,5 +343,14 @@ export default {
   top: 50%;
   transform: translateY(-50%);
   color: #6c757d;
+}
+/* Footer Section */
+footer{
+  background-color:#3a3f5f;
+  position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 </style>

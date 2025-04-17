@@ -119,9 +119,10 @@
             <h2>Contact Us</h2>
             <p class="lead">Have any questions? We'd love to hear from you. Reach out to us through any of the following methods:</p>
             <ul class="list-unstyled">
-              <li>Email: pltsolutions3010@gmail.com</li>
-              <li>Phone: 0974660075</li>
-              <li>Address: Vĩnh Phú 41, Quốc Lộ 13, Thuận An, Bình Dương</li>
+              <li>XƯỞNG THỰC TẬP PLT SOLUTIONS</li>
+              <li><strong>PLT PRO: </strong><router-link to="https://pltpro.net">https://pltpro.net</router-link></li>
+              <li><strong>PLT STORE: </strong><router-link to="https://xaydungphanmem.com">https://xaydungphanmem.com</router-link></li>
+              <li><strong>YOUTUBE: </strong><router-link to="www.youtube.com/@pltsolutions3010">www.youtube.com/@pltsolutions3010</router-link></li>
             </ul>
           </div>
         </div>

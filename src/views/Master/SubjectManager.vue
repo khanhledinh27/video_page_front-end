@@ -76,7 +76,7 @@
                   <td>{{ subject.description }}</td>
                   <td>
                     {{ console.log("Subject:", subject) }}
-                    <img v-if="subject.thumbnail" :src="getFullImageUrl(subject.thumbnail)" alt="Thumbnail" class="thumbnail-img" />
+                    <img v-if="subject.thumbnail" :src="subject.thumbnail" alt="Thumbnail" class="thumbnail-img" />
                     
                     <span v-else>Không có ảnh</span>
                   </td>

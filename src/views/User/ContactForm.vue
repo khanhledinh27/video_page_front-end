@@ -1,17 +1,25 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
             <div class="container">
                 <router-link to="/" @click="reloadPage" class="navbar-brand">
-                    <img src="/src/assets/logo_plt.png" class="navbar-logo">
+                <img src="/src/assets/logo_plt.png" class="navbar-logo" alt="PLT Solutions Logo">
                 </router-link>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                >
+                <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <router-link to="/" @click="reloadPage" class="nav-link active" aria-current="page">Trang chủ</router-link>
+                        <router-link to="/" class="nav-link " aria-current="page">Trang chủ</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link to="/course" class="nav-link">Bài giảng</router-link>
@@ -20,13 +28,12 @@
                         <router-link to="/courselist" class="nav-link">Khóa học</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/contact" class="nav-link">Liên hệ</router-link>
+                        <router-link to="/contact" class="nav-link active">Liên hệ</router-link>
                     </li>
-                    
-                    </ul>
+                </ul>
                 </div>
             </div>
-        </nav>
+            </nav>
         
         <!-- Header -->
         <div class="header">
@@ -44,14 +51,15 @@
                         <input v-model="contact.email" type="email" placeholder="Email" required />
                         <input v-model="contact.number" type="text" placeholder="Number" required />
                         <textarea v-model="contact.message" placeholder="Enter Message" required></textarea>
-                        <button type="submit">Gửi</button>
+                        <button type="submit" class="btn1">Gửi</button>
                     </form>
                     <p v-if="message" class="success-message">{{ message }}</p>
                 </div>
                 <div class="contact-info">
-                    <p><strong>Địa chỉ:</strong> 739 đường 14, KDC Ehome 4, P. Vĩnh Phú, TP. Thuận An, Bình Dương</p>
-                    <p><strong>Điện thoại:</strong> 0971460075</p>
-                    <p><strong>Email:</strong> plt.solutions3010@gmail.com</p>
+                    <p><strong>XƯỞNG THỰC TẬP PLT SOLUTIONS</strong></p>
+                    <p><strong>PLT PRO: </strong><router-link to="https://pltpro.net">https://pltpro.net</router-link></p>
+                    <p><strong>PLT STORE:</strong> <router-link to="https://xaydungphanmem.com">https://xaydungphanmem.com</router-link></p>
+                    <p><strong>YOUTUBE:</strong> <router-link to="www.youtube.com/@pltsolutions3010">youtube.com/@pltsolutions3010</router-link></p>
                 </div>
             </div>
         </div>
@@ -118,7 +126,70 @@
   height: 100px; /* Adjust the height as needed */
   width: auto;
 }
+/* Navbar Styles */
+.custom-navbar {
+  background-color: #ffffff;
+  border-bottom: 2px solid #324ee9;
+  padding: 10px 0;
+}
 
+.navbar-logo {
+  height: 60px;
+  width: auto;
+  margin-right: 20px;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+  color: #000000;
+  text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #324ee9;
+}
+
+.navbar-nav .nav-link.active {
+  color: #324ee9;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 15px;
+  width: 250px;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #324ee9;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav .nav-item {
+    margin-right: 10px;
+  }
+
+  .search-input {
+    width: 150px;
+  }
+}
 /*Nav item */
   .nav-item{
     margin-right: 15px;
@@ -199,7 +270,7 @@ input, textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-button {
+.btn1 {
     width: 100%;
     padding: 10px;
     background-color: #3a3f5f;
@@ -208,7 +279,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
-button:hover {
+.btn1:hover {
     background-color: #2e324b;
 }
 .success-message {
@@ -229,5 +300,10 @@ button:hover {
 /* Footer Section */
 footer{
   background-color:#3a3f5f;
+  position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 </style>

@@ -1,16 +1,24 @@
 <template>
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-          <router-link to="/" @click="reloadPage" class="navbar-brand">
-            <img src="/src/assets/logo_plt.png" class="navbar-logo">
-          </router-link>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+      <div class="container">
+        <router-link to="/" @click="reloadPage" class="navbar-brand">
+          <img src="/src/assets/logo_plt.png" class="navbar-logo" alt="PLT Solutions Logo">
+        </router-link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
                 <router-link to="/" @click="reloadPage" class="nav-link active" aria-current="page">Trang chủ</router-link>
               </li>
               <li class="nav-item">
@@ -22,13 +30,11 @@
               <li class="nav-item">
                 <router-link to="/contact" class="nav-link">Liên hệ</router-link>
               </li>
-              
-            </ul>
-          </div>
+          </ul>
         </div>
-      </nav>
-        
-      <div class="homepage">
+      </div>
+    </nav>
+    <div class="homepage">
             <!-- Banner Chào Mừng -->
             <div class="carousel-container">
               <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
@@ -41,24 +47,18 @@
                   <div class="carousel-item active">
                     <img src="/src/assets/anh1.jpg" class="d-block w-100 carousel-image" alt="Welcome Image">
                     <div class="carousel-caption">
-                      <h1>Chào mừng đến với <span class="highlight">PLT SOLUTIONS COURSES</span></h1>
-                      <p>Nâng cao kỹ năng của bạn với các khóa học chất lượng hàng đầu.</p>
                       <router-link to="/courselist" class="btn btn-primary">Khám phá khóa học</router-link>
                     </div>
                   </div>
                   <div class="carousel-item">
                     <img src="/src/assets/anh2.jpg" class="d-block w-100 carousel-image" alt="About Us Image">
                     <div class="carousel-caption">
-                      <h1>Tìm hiểu thêm về <span class="highlight">PLT SOLUTIONS</span></h1>
-                      <p>Nâng cao kỹ năng của bạn với các khóa học chất lượng hàng đầu.</p>
                       <router-link to="/landingpage" class="btn btn-primary">Khám phá ngay</router-link>
                     </div>
                   </div>
                   <div class="carousel-item">
                     <img src="/src/assets/anh3.jpg" class="d-block w-100 carousel-image" alt="Feature Image">
                     <div class="carousel-caption">
-                      <h1>Khám phá <span class="highlight">Các bài giảng</span></h1>
-                      <p>Học tập và phát triển cùng chúng tôi.</p>
                       <router-link to="/course" class="btn btn-primary">Xem bài giảng</router-link>
                     </div>
                   </div>
@@ -77,7 +77,7 @@
 
             <!-- Bài giảng -->
             <section class="courses-section">
-            <h2>Danh sách các bài giảng</h2>
+            <router-link to="/course" class="nav-link"><h2>Danh sách bài giảng</h2></router-link>
             <div v-if="isLoading" class="loading">Đang tải...</div>
             <div v-else class="course-list">
                 <div v-for="(course, index) in visibleLectures" :key="course.id" class="course-card">
@@ -197,7 +197,70 @@
   height: 100px; /* Adjust the height as needed */
   width: auto;
 }
+/* Navbar Styles */
+.custom-navbar {
+  background-color: #ffffff;
+  border-bottom: 2px solid #324ee9;
+  padding: 10px 0;
+}
 
+.navbar-logo {
+  height: 60px;
+  width: auto;
+  margin-right: 20px;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+  color: #000000;
+  text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #324ee9;
+}
+
+.navbar-nav .nav-link.active {
+  color: #324ee9;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 15px;
+  width: 250px;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #324ee9;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav .nav-item {
+    margin-right: 10px;
+  }
+
+  .search-input {
+    width: 150px;
+  }
+}
 /*Nav item */
   .nav-item{
     margin-right: 15px;
@@ -315,7 +378,6 @@
   max-width: 1300px;
   margin: 50px auto;
   overflow: hidden;
-  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
 }
@@ -368,16 +430,11 @@
 
 .carousel-caption {
   position: absolute;
-  bottom: 20px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7);
   padding: 2rem;
-  color: white;
   text-align: center;
-  border-radius: 15px;
-  width: 80%;
-  max-width: 800px;
 }
 
 .carousel-caption h1 {
@@ -399,7 +456,6 @@
 .carousel-caption .btn {
   font-size: 1.1rem;
   padding: 0.5rem 2rem;
-  border-radius: 25px;
   transition: all 0.3s ease;
 }
 
@@ -410,39 +466,30 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .carousel-image {
-    height: 400px;
+  .carousel-container {
+    display: none;
   }
 
-  .carousel-caption {
-    padding: 1rem;
-  }
-
-  .carousel-caption h1 {
-    font-size: 1.8rem;
-  }
-
-  .carousel-caption p {
-    font-size: 1rem;
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
   }
 }
 
 @media (max-width: 480px) {
-  .carousel-image {
-    height: 300px;
+  .carousel-container {
+    display: none;
   }
 
-  .carousel-caption h1 {
-    font-size: 1.4rem;
-  }
-
-  .carousel-caption p {
-    font-size: 0.9rem;
-  }
-
-  .carousel-caption .btn {
-    font-size: 0.9rem;
-    padding: 0.4rem 1.5rem;
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
   }
 }
 
