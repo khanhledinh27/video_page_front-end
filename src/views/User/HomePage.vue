@@ -97,7 +97,7 @@
           <section class="">
             <p class="d-flex justify-content-center align-items-center">
               <span class="me-3">Tạo tài khoản miễn phí:</span>
-              <router-link to="/login" type="button" class="btn btn-outline-light btn-rounded">
+              <router-link to="/login/admin" type="button" class="btn btn-outline-light btn-rounded">
                 Đăng ký ngay!
               </router-link>
             </p>
