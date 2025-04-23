@@ -1,20 +1,20 @@
 <template>
     <div class="login-container">
       <div class="login-box">
-        <h2 class="text-center">User Login</h2>
+        <h2 class="text-center">Admin Login</h2>
         <p class="text-center">Please login to continue</p>
-        <form @submit.prevent="loginAsUser">
+        <form @submit.prevent="loginAsAdmin">
           <div class="form-group">
             <label>Email</label>
-            <input type="email" v-model="user.email" class="form-control" placeholder="Enter your email" required />
+            <input type="email" v-model="admin.email" class="form-control" placeholder="Enter your email" required />
           </div>
   
           <div class="form-group">
             <label>Password</label>
-            <input type="password" v-model="user.password" class="form-control" placeholder="Enter your password" required />
+            <input type="password" v-model="admin.password" class="form-control" placeholder="Enter your password" required />
           </div>
   
-          <button type="submit" class="btn btn-primary btn-block">Login as User</button>
+          <button type="submit" class="btn btn-primary btn-block">Login as Admin</button>
           <p class="text-center mt-3"><a href="#">Forgot password?</a></p>
           <p class="text-center mt-3"><a href="/register">Register an account</a></p>
         </form>
@@ -23,45 +23,45 @@
   </template>
   
   <script>
-  import axios from 'axios';
-  import { reactive, onMounted } from 'vue';
-  import { useRouter } from 'vue-router'; 
-  
-  export default {
-    name: 'Login',
-    data() {
-        return {
-        user: {
-            email: "",
-            password: "",
-        },
-        };
-    },
-    methods: {
-        async loginAsUser() {
-        try {
-            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, this.user);
+import axios from "axios";
+import { useRouter } from "vue-router";
 
-            if (data.status) {
-            console.log("Login response:", data);
+export default {
+  name: "LoginAdmin",
 
-            // Save token and role in sessionStorage
-            sessionStorage.setItem("token", data.token);
-            sessionStorage.setItem("role", data.role);
+  data() {
+    return {
+      admin: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+  methods: {
+    async loginAsAdmin() {
+      try {
+        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/login/admin`, this.admin);
 
-            // Redirect to user dashboard
-            this.$router.push("/");
-            } else {
-            alert(data.message);
-            }
-        } catch (error) {
-            console.error("Login error:", error.response || error);
-            alert(error.response?.data?.message || "Login failed. Please check your credentials.");
+        if (data.status) {
+          console.log("Login response:", data);
+
+          // Save token and role in sessionStorage
+          sessionStorage.setItem("token", data.token);
+          sessionStorage.setItem("role", data.role);
+
+          // Redirect to admin dashboard
+          this.$router.push("/admin");
+        } else {
+          alert(data.message);
         }
-        },
+      } catch (error) {
+        console.error("Login error:", error.response || error);
+        alert(error.response?.data?.message || "Login failed. Please check your credentials.");
+      }
     },
-  };
-  </script>
+  },
+};
+</script>
   
   <style lang="scss" scoped>
   .login-container {

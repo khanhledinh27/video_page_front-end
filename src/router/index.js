@@ -15,7 +15,7 @@ import CoursesListPage from '@/views/User/Courses/CoursesListPage.vue'
 import LandingPage from '@/views/User/LandingPage.vue'
 import ContactForm from '@/views/User/ContactForm.vue'
 import ContactManager from '@/views/Master/ContactManager.vue'
-
+import LoginAdmin from '@/components/LoginAdmin.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -57,6 +57,11 @@ const router = createRouter({
       path:'/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path:'/login/admin',
+      name: 'LoginAdmin',
+      component: LoginAdmin
     },
     {
       path:'/dashboard',
