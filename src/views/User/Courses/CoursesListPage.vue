@@ -56,10 +56,7 @@
         <div class="container p-4 pb-0">
           <section class="">
             <p class="d-flex justify-content-center align-items-center">
-              <span class="me-3">Tạo tài khoản miễn phí:</span>
-              <router-link to="/login" type="button" class="btn btn-outline-light btn-rounded">
-                Đăng ký ngay!
-              </router-link>
+              <span class="me-3">Chào mừng đến với PLT Solutions, nơi sẽ không làm các bạn thất vọng!!!</span>
             </p>
           </section>
         </div>

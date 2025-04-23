@@ -40,7 +40,7 @@ export default {
   methods: {
     async loginAsAdmin() {
       try {
-        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/login/admin`, this.admin);
+        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, this.admin);
 
         if (data.status) {
           console.log("Login response:", data);
