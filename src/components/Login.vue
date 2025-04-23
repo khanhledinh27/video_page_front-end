@@ -40,7 +40,7 @@
     methods: {
         async loginAsUser() {
         try {
-            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, this.user);
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/login/user`, this.user);
 
             if (data.status) {
             console.log("Login response:", data);
